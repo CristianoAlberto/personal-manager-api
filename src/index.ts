@@ -7,6 +7,7 @@ import rateLimit from "express-rate-limit"
 import cors from "cors"
 
 import { router as product } from "./modules/Product/Product.Router"
+import { router as sale } from "./modules/Sale/Sale.Router"
 
 const app = express()
 
@@ -47,6 +48,7 @@ app.get(`/${version}/`, (req: Request, res: Response) => {
 })
 
 app.use(`/${version}/product`, product)
+app.use(`/${version}/sale`, sale)
 
 app.listen(Number(process.env.PORT) | 3000, () => {
     console.log("Rodando api ", process.env.PORT || 3000)
